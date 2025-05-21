@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaLux Toronto - Contact Us</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #fff;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #000;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .logo span {
+            display: block;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+        
+        .social-icons a {
+            color: #fff;
+            margin-right: 20px;
+            font-size: 18px;
+        }
+        
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 40px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('/api/placeholder/1600/900') center/cover no-repeat;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        
+        .hero-divider {
+            width: 80px;
+            height: 3px;
+            background-color: #987750;
+            margin: 30px auto;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            background-color: #000;
+        }
+        
+        .contact-info {
+            flex: 0 0 100%;
+            margin-bottom: 50px;
+        }
+        
+        @media (min-width: 768px) {
+            .contact-info {
+                flex: 0 0 40%;
+                padding-right: 60px;
+            }
+        }
+        
+        .contact-info h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        
+        .info-divider {
+            width: 80px;
+            height: 3px;
+            background-color: #987750;
+            margin: 30px 0;
+        }
+        
+        .contact-method {
+            margin-bottom: 30px;
+        }
+        
+        .contact-method h3 {
+            font-size: 1.3rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: #987750;
+        }
+        
+        .contact-method p {
+            font-size: 1.1rem;
+            color: #ddd;
+            margin-bottom: 10px;
+        }
+        
+        .contact-method a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-method a:hover {
+            color: #987750;
+        }
+        
+        .contact-form {
+            flex: 0 0 100%;
+            background-color: #111;
+            padding: 40px;
+            border-radius: 0;
+        }
+        
+        @media (min-width: 768px) {
+            .contact-form {
+                flex: 0 0 60%;
+            }
+        }
+        
+        .contact-form h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        
+        .form-divider {
+            width: 80px;
+            height: 3px;
+            background-color: #987750;
+            margin: 30px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #ddd;
+        }
+        
+        .form-control {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            color: #fff;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #987750;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: none;
+            border: 1px solid #987750;
+            color: #987750;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+        
+        .submit-btn:hover {
+            background-color: #987750;
+            color: #000;
+        }
+        
+        .form-message {
+            margin-top: 20px;
+            padding: 15px;
+            display: none;
+        }
+        
+        .form-message.success {
+            background-color: rgba(40, 167, 69, 0.2);
+            border: 1px solid rgba(40, 167, 69, 0.4);
+            color: #ddd;
+        }
+        
+        .form-message.error {
+            background-color: rgba(220, 53, 69, 0.2);
+            border: 1px solid rgba(220, 53, 69, 0.4);
+            color: #ddd;
+        }
+        
+        /* Map Section */
+        .map-section {
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) brightness(0.8);
+        }
+        
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .map-card {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .map-title {
+            font-size: 1.8rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        
+        .map-divider {
+            width: 50px;
+            height: 3px;
+            background-color: #987750;
+            margin: 20px auto;
+        }
+        
+        .map-address {
+            font-size: 1.1rem;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+        
+        .map-btn {
+            display: inline-block;
+            background: none;
+            border: 1px solid #987750;
+            color: #987750;
+            padding: 12px 30px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .map-btn:hover {
+            background-color: #987750;
+            color: #000;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #111;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .footer-links a {
+            color: #fff;
+            margin: 0 20px;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+        
+        .footer-social {
+            margin: 30px 0;
+        }
+        
+        .footer-social a {
+            color: #fff;
+            margin: 0 15px;
+            font-size: 20px;
+        }
+        
+        .copyright {
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-info, .contact-form {
+                flex: 0 0 100%;
+            }
+            
+            .contact-info {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+            
+            .map-card {
+                width: 90%;
+                padding: 30px 20px;
+            }
+            
+            .footer-links a {
+                margin: 0 10px 10px;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="far fa-envelope"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        
+        <a href="index.html" class="logo">
+            AQUALUX
+            <span>TORONTO</span>
+        </a>
+        
+        <button class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>CONTACT US</h1>
+            <div class="hero-divider"></div>
+            <p>We're ready to craft your perfect watercraft experience. Reach out to our team with any questions or to begin planning your adventure on Lake Ontario.</p>
+        </div>
+    </section>
+    
+    <div class="contact-container">
+        <div class="contact-info">
+            <h2>GET IN TOUCH</h2>
+            <div class="info-divider"></div>
+            
+            <div class="contact-method">
+                <h3>LOCATION</h3>
+                <p>AquaLux Toronto Marina</p>
+                <p>235 Queens Quay West</p>
+                <p>Toronto, ON M5J 2G8</p>
+                <p>Canada</p>
+            </div>
+            
+            <div class="contact-method">
+                <h3>HOURS</h3>
+                <p><strong>In Season (May-October):</strong></p>
+                <p>Monday-Friday: 9:00 AM - 7:00 PM</p>
+                <p>Saturday-Sunday: 8:00 AM - 8:00 PM</p>
+                <p><strong>Off Season (November-April):</strong></p>
+                <p>Monday-Friday: 10:00 AM - 5:00 PM</p>
+                <p>Saturday: 10:00 AM - 4:00 PM</p>
+                <p>Sunday: Closed</p>
+            </div>
+            
+            <div class="contact-method">
+                <h3>CONTACT</h3>
+                <p>Phone: <a href="tel:+14165557890">+1 (416) 555-7890</a></p>
+                <p>Email: <a href="mailto:mustafadarras878@gmail.com">mustafadarras878@gmail.com</a></p>
+            </div>
+            
+            <div class="contact-method">
+                <h3>FOLLOW US</h3>
+                <div class="social-icons" style="margin-top: 10px;">
+                    <a href="#" style="margin-right: 15px;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="margin-right: 15px;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" style="margin-right: 15px;"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-form">
+            <h2>SEND US A MESSAGE</h2>
+            <div class="form-divider"></div>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Your Name*</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address*</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject*</label>
+                    <input type="text" id="subject" name="subject" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message*</label>
+                    <textarea id="message" name="message" class="form-control" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">SEND MESSAGE</button>
+                
+                <div class="form-message success" id="formSuccess">
+                    Your message has been sent successfully. We'll be in touch soon.
+                </div>
+                
+                <div class="form-message error" id="formError">
+                    There was an error sending your message. Please try again later.
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <section class="map-section">
+        <img src="/api/placeholder/1920/500" alt="Map location" class="map-placeholder">
+        <div class="map-overlay">
+            <div class="map-card">
+                <h3 class="map-title">FIND US</h3>
+                <div class="map-divider"></div>
+                <p class="map-address">AquaLux Toronto Marina<br>235 Queens Quay West<br>Toronto, ON M5J 2G8<br>Canada</p>
+                <a href="https://maps.google.com/?q=235+Queens+Quay+West+Toronto+ON+M5J+2G8" target="_blank" class="map-btn">GET DIRECTIONS</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-logo">
+            AQUALUX
+            <span>TORONTO</span>
+        </div>
+        
+        <div class="footer-links">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="book-now.html">BOOK NOW</a>
+            <a href="fleet.html">OUR FLEET</a>
+            <a href="experiences.html">EXPERIENCES</a>
+            <a href="contact.html">CONTACT US</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+        
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        
+        <p class="copyright">&copy; 2025 AquaLux Toronto. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            // Mobile menu logic would go here
+            alert('Mobile menu functionality would be implemented here');
+        });
+        
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'SENDING...';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value || 'Not provided',
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Send the form data to our Flask backend
+            fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Reset button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                
+                if (data.success) {
+                    // Show success message
+                    document.getElementById('formSuccess').style.display = 'block';
+                    document.getElementById('formError').style.display = 'none';
+                    this.reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        document.getElementById('formSuccess').style.display = 'none';
+                    }, 5000);
+                } else {
+                    // Show error message with specific message if available
+                    document.getElementById('formError').textContent = data.error || 'There was an error sending your message. Please try again later.';
+                    document.getElementById('formError').style.display = 'block';
+                    document.getElementById('formSuccess').style.display = 'none';
+                    
+                    // Hide error message after 5 seconds
+                    setTimeout(() => {
+                        document.getElementById('formError').style.display = 'none';
+                    }, 5000);
+                }
+            })
+            .catch(error => {
+                // Reset button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                
+                // Show error message
+                document.getElementById('formError').style.display = 'block';
+                document.getElementById('formSuccess').style.display = 'none';
+                
+                // Hide error message after 5 seconds
+                setTimeout(() => {
+                    document.getElementById('formError').style.display = 'none';
+                }, 5000);
+            });
+        });
+    </script>
+</body>
+</html>

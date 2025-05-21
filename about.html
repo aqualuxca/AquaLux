@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaLux Toronto - About Us</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #fff;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #000;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .logo span {
+            display: block;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+        
+        .social-icons a {
+            color: #fff;
+            margin-right: 20px;
+            font-size: 18px;
+        }
+        
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 40px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('/api/placeholder/1600/900') center/cover no-repeat;
+            margin-bottom: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        
+        .hero-divider {
+            width: 80px;
+            height: 3px;
+            background-color: #987750;
+            margin: 30px 0;
+        }
+        
+        /* Content Sections */
+        .section {
+            padding: 80px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .section-dark {
+            background-color: #111;
+        }
+        
+        .section-light {
+            background-color: #000;
+        }
+        
+        .section-content {
+            flex: 0 0 48%;
+        }
+        
+        .section-image {
+            flex: 0 0 48%;
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+        
+        .triangle-mask {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            height: 100%;
+            width: 100%;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        
+        .section-divider {
+            width: 80px;
+            height: 3px;
+            background-color: #987750;
+            margin: 30px 0;
+        }
+        
+        .section p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #ddd;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: none;
+            border: none;
+            color: #987750;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 300;
+            margin-top: 30px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: 80px 40px;
+            text-align: center;
+        }
+        
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .team-member {
+            flex: 0 0 300px;
+            text-align: center;
+        }
+        
+        .team-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+        }
+        
+        .team-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .team-title {
+            color: #987750;
+            margin-bottom: 15px;
+        }
+        
+        /* FAQ Styles */
+        .faq-container {
+            margin-top: 30px;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            cursor: pointer;
+        }
+        
+        .faq-question h3 {
+            font-weight: 300;
+            font-size: 1.3rem;
+            margin: 0;
+        }
+        
+        .faq-toggle {
+            color: #987750;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 0 0 0;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-bottom: 20px;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #111;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .footer-links a {
+            color: #fff;
+            margin: 0 20px;
+            text-decoration: none;
+        }
+        
+        .footer-social {
+            margin: 30px 0;
+        }
+        
+        .footer-social a {
+            color: #fff;
+            margin: 0 15px;
+            font-size: 20px;
+        }
+        
+        .copyright {
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+            }
+            
+            .section-content, .section-image {
+                flex: 0 0 100%;
+                margin-bottom: 40px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+            }
+            
+            .footer-links a {
+                margin: 10px 0;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/aqualuxrentals/"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="far fa-envelope"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        
+        <a href="index.html" class="logo">
+            AQUALUX
+            <span>TORONTO</span>
+        </a>
+        
+        <button class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ABOUT AQUALUX</h1>
+            <div class="hero-divider"></div>
+            <p>At AquaLux, we’re not just about renting jet skis — we’re about delivering unforgettable experiences on the water. Located right by Woodbine Beach in Toronto, our goal is simple: to combine luxury, safety, and thrill in every ride.</p>
+            <br>
+            <br>
+            <p>We take pride in maintaining a fleet of high-performance, top-of-the-line jet skis — including the latest models like the 2025 Sea-Doo GTI and Kawasaki Ultra 310X. Every machine is thoroughly inspected, cleaned, and serviced after each use to ensure it’s always in peak condition for the next ride.</p>
+        </div>
+    </section>
+    
+    <section class="section section-light">
+        <div class="section-content">
+            <h2>But what really sets us apart? You</h2>
+            <div class="section-divider"></div>
+            <p>Our customers are the core of everything we do. Whether it’s your first time riding or you’re a seasoned water pro, our team is here to walk you through every step — from quick tutorials and safety briefings to personalized route suggestions for the ultimate Toronto waterfront experience.</p>
+            
+        </div>
+        <div class="section-image">
+            <div class="triangle-mask">
+                <img src="/api/placeholder/800/800" alt="AquaLux Toronto skyline view" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </div>
+    </section>
+    
+    <section class="section section-dark">
+        <div class="section-image">
+            <div class="triangle-mask">
+                <img src="/api/placeholder/800/800" alt="Luxury yacht experience" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </div>
+        <div class="section-content">
+            <h2>We’re committed to:</h2>
+            <div class="section-divider"></div>
+            <li>Providing safe, well-maintained, and powerful jet skis</li>
+            <li>Offering flexible rentals that suit your schedule</li>
+            <li>Ensuring you leave with nothing but great memories</li>
+            <br>
+            <p>So come ride with us, feel the thrill, and see the city from a whole new perspective.</p>
+            <p>We’re here to make waves — and we’re glad you’re riding with us.</p>
+        </div>
+    </section>
+   
+    <!-- FAQ Section Added Here -->
+    <section class="section section-dark" id="faq">
+        <div class="section-content" style="flex: 0 0 100%; max-width: 1000px; margin: 0 auto;">
+            <h2>FREQUENTLY ASKED QUESTIONS</h2>
+            <div class="section-divider"></div>
+            <p style="margin-bottom: 40px;">Find answers to our most commonly asked questions. If you need further assistance, please <a href="contact.html" style="color: #987750; text-decoration: none;">contact us</a>.</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What services does AquaLux Rentals offer?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>AquaLux Rentals offers premium Jet Ski Rentals at Woodbine Beach and Luxury Yacht Charters at Toronto’s main marina. Whether you're craving adrenaline or planning a refined event on the water, we deliver top-tier experiences designed for luxury, comfort, and fun.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Where are you located?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <li><strong>Jet Skis:</strong> Operate out of Woodbine Beach, one of Toronto’s most iconic waterfront destinations with open space for safe riding and beautiful lake views.</li>
+                        <li><strong>Yachts:</strong> Depart from Toronto’s downtown marina, close to the CN Tower, Sugar Beach, and Harbourfront Centre, offering access to the Toronto Islands and skyline tours.</li>
+
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What types of jet skis do you rent?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We feature the newest <strong>Sea-Doo GTI 2025</strong> models, with:</p>
+                        <li>Seating for up to 3 riders</li>
+                        <li>Intelligent Brake & Reverse (iBR)</li>
+                        <li>GoPro mount compatibility</li>
+                        <li>Smooth acceleration and beginner-friendly handling</li>
+
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How much does a jet ski rental cost?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Jet ski rentals start at <strong>$120/hour.</strong>
+                            We also offer:</p>
+                            <li><strong>AquaPass Loyalty Card:</strong> Rent 5 times, get your 6th FREE</li>
+                            <li>Group rates and weekday discounts</li>
+                            <li>Half-day packages available</li>
+                        <p>All rentals launch directly from <strong>Woodbine Beach</strong></p>
+
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What yachts are available and what do they include?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Choose from our three-tier luxury yacht fleet, all departing from Toronto Marina:</p>
+
+                        <strong><p>52-Foot Yacht</p></strong>
+                        <li>Up to 18 guests</li>
+                        <li>Rooftop deck, lounge areas, and bar</li>
+                        <li>Bluetooth audio & luxury interior</li>
+                        <li>Captain and crew included</li>
+                        <li>Starting at $1,399 / 2 hours</li>
+
+                        <strong><p>39-Foot Yacht</p></strong>
+                        <li>Up to 12 guests</li>
+                        <li>Open-air lounge, cabin, and sound system</li>
+                        <li>Captain & host included</li>
+                        <li>Starting at $749 / 2 hours</li>
+
+                        <strong><p>32-Foot Yacht</p></strong>
+                        <li>Ideal for 2–8 guests</li>
+                        <li>Sporty, elegant layout — perfect for private cruises</li>
+                        <li>Captain included</li>
+                        <li>Starting at $599 / 2 hours</li>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What occasions are your rentals good for?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                    <p>Our services are perfect for:</p>
+                        <li>Birthday parties</li>
+                        <li>Engagements & sunset cruises</li>
+                        <li>Bachelor/bachelorette trips</li>
+                        <li>Corporate outings</li>
+                        <li>Social media content creation</li>
+                    <p>Let us know your theme — we’ll handle the setup.</p>
+
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is safety equipment provided?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. Your safety is our priority. Every rental includes:</p>
+                        <li>Life jackets (child to adult sizes)</li>
+                        <li>Full safety briefing</li>
+                        <li>Certified staff support</li>
+                        <li>GPS and emergency kits onboard</li>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Are jet skis beginner-friendly?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                    <p>Definitely. We welcome first-timers with:</p>
+                        <li>Personalized instruction</li>
+                        <li>Dockside support</li>
+                        <li>Easy-to-use controls on our 2025 Sea-Doo GTIs</li>
+                    <p>All rides are launched from <strong>Woodbine Beach</strong>, where there's plenty of space to learn.</p>
+                    </div>
+                </div>
+                
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you offer group packages or deals?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                    <p>Yes! We offer:</p>
+                        <li>Group pricing for 4+ guests</li>
+                        <li>Discounted multi-hour packages</li>
+                        <li>AquaPass: Get your 6th ride free</li>
+                        <li>Add-ons for birthdays, bridal events & more</li>
+                    <p>All rides are launched from <strong>Woodbine Beach</strong>, where there's plenty of space to learn.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What makes AquaLux different?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <li> Luxury-first brand image</li>
+                        <li>Fleet is professionally maintained in-house</li>
+                        <li>Experiences tailored to your group</li>
+                        <li>Friendly, trained crew for jet skis & yachts</li>
+                        <li><strong>Locations at Woodbine Beach & Downtown Marina</strong></li>
+
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How can I book?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <li><strong>Reserve Online:</strong> [Insert Link]</li>
+                        <li><strong>Call/Text:</strong> XXXXXXX</li>
+                        <li><strong>Walk Ins</li></strong>
+                        <li><strong>📍Jet Ski Launch:</strong>Woodbine Beach (Eastern Ave. entrance)</li>
+                        <li><strong>📍 Yacht Dock:</strong>Downtown Toronto Marina – Slip #XXc</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-logo">
+            AQUALUX
+            <span>TORONTO</span>
+        </div>
+        
+        <div class="footer-links">
+            <a href="index.html">HOME</a>
+            <a href="MAY 17/index.html">BOOK NOW</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="contact.html">CONTACT US</a>
+            <a href="maps.html">FIND US</a>
+        </div>
+        
+        <div class="footer-social">
+            <a href="https://www.instagram.com/aqualuxrentals/"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="far fa-envelope"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        
+        <p class="copyright">&copy; 2025 AquaLux Toronto. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            // Mobile menu logic would go here
+            alert('Mobile menu functionality would be implemented here');
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.pageYOffset;
+            const heroSection = document.querySelector('.hero');
+            if (heroSection) {
+                heroSection.style.backgroundPositionY = (scrollPosition * 0.4) + 'px';
+            }
+        });
+        
+        // FAQ Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Open the first FAQ item by default
+            if (faqItems.length > 0) {
+                faqItems[0].classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
