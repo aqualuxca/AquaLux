@@ -92,6 +92,43 @@
             margin: 20px auto 40px;
         }
         
+        /* Category Selection */
+        .category-selection {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .category-button {
+            padding: 20px 40px;
+            background: rgba(20,20,20,0.8);
+            border: 2px solid rgba(152, 119, 80, 0.3);
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .category-button.active {
+            background: rgba(152, 119, 80, 0.3);
+            border-color: #987750;
+            box-shadow: 0 0 20px rgba(152, 119, 80, 0.4);
+        }
+        
+        .category-button:hover {
+            background: rgba(152, 119, 80, 0.2);
+            border-color: #987750;
+            transform: translateY(-5px);
+        }
+        
         /* Vehicle Selection Area */
         .vehicle-display {
             display: flex;
@@ -175,66 +212,13 @@
             font-weight: 700;
         }
         
-        /* Rate Toggle */
-        .rate-toggle {
-            display: flex;
+        /* Current Price Display */
+        .current-price {
+            text-align: center;
             margin: 30px 0;
-            gap: 10px;
-        }
-        
-        .rate-option {
-            padding: 15px 25px;
-            background: rgba(20,20,20,0.8);
-            border: 1px solid rgba(152, 119, 80, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 140px;
-            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
-        }
-        
-        .rate-option.active {
-            background: rgba(152, 119, 80, 0.2);
-            border-color: #987750;
-            box-shadow: 0 0 15px rgba(152, 119, 80, 0.3);
-        }
-        
-        .rate-option::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: #987750;
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-            transform-origin: center;
-        }
-        
-        .rate-option.active::after {
-            transform: scaleX(1);
-        }
-        
-        .rate-price {
-            font-size: 1.2rem;
-            font-weight: 600;
+            font-size: 2rem;
             color: #987750;
-            margin-top: 5px;
-        }
-        
-        .rate-option:hover {
-            transform: translateY(-5px);
-        }
-        
-        .rate-option:hover:not(.active) {
-            background: rgba(30,30,30,0.9);
+            font-weight: 600;
         }
         
         /* Thumbnails and Navigation */
@@ -452,47 +436,16 @@
             .footer-links a {
                 margin: 10px 0;
             }
-        }
-        
-        /* Duration toggle styles */
-        .duration-toggle {
-            margin-top: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .duration-heading {
-            font-size: 1rem;
-            font-weight: 300;
-            color: #aaa;
-            margin-bottom: 5px;
-        }
-        
-        .duration-options {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .duration-option {
-            padding: 8px 20px;
-            background: rgba(20,20,20,0.8);
-            border: 1px solid rgba(152, 119, 80, 0.3);
-            color: #fff;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            border-radius: 3px;
-        }
-        
-        .duration-option.active {
-            background: rgba(152, 119, 80, 0.3);
-            border-color: #987750;
-        }
-        
-        .duration-option:hover {
-            background: rgba(30,30,30,0.9);
-            transform: translateY(-2px);
+            
+            .category-selection {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .category-button {
+                min-width: 250px;
+            }
         }
         
         /* Add these styles to support the new layout */
@@ -532,6 +485,16 @@
         
         <h1 class="section-title">SELECT YOUR RIDE</h1>
         <div class="section-divider"></div>
+        
+        <!-- Category Selection -->
+        <div class="category-selection">
+            <div class="category-button active" onclick="setCategory('weekday')">
+                WEEKDAY RATES
+            </div>
+            <div class="category-button" onclick="setCategory('weekend')">
+                WEEKEND RATES
+            </div>
+        </div>
         
         <div class="vehicle-display">
             <div class="vehicle-image-container">
@@ -573,25 +536,8 @@
                     </div>
                 </div>
                 
-                <div class="rate-toggle">
-                    <div class="rate-option active" onclick="setRate('weekday')">
-                        WEEKDAY
-                        <span class="rate-price" id="weekdayPrice">$279</span>
-                    </div>
-                    <div class="rate-option" onclick="setRate('weekend')">
-                        WEEKEND
-                        <span class="rate-price" id="weekendPrice">$379</span>
-                    </div>
-                </div>
-                
-                <!-- Duration Toggle for Jet Skis -->
-                <div class="duration-toggle" id="durationToggle" style="display:none;">
-                    <h3 class="duration-heading">Duration:</h3>
-                    <div class="duration-options">
-                        <button type="button" class="duration-option active" data-duration="hour" onclick="setDuration('hour')">1 Hour</button>
-                        <button type="button" class="duration-option" data-duration="half" onclick="setDuration('half')">30 Minutes</button>
-                    </div>
-                </div>
+                <!-- Current Price Display -->
+                <div class="current-price" id="currentPrice">$125</div>
             </div>
         </div>
         
@@ -625,7 +571,7 @@
         
         <div class="footer-links">
             <a href="index.html">HOME</a>
-            <a href="MAY 17/index.html">BOOK NOW</a>
+            <a href="book.html">BOOK NOW</a>
             <a href="about.html">ABOUT US</a>
             <a href="contact.html">CONTACT US</a>
             <a href="maps.html">FIND US</a>
@@ -633,8 +579,7 @@
         
         <div class="footer-social">
             <a href="https://www.instagram.com/aqualuxrentals/"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="far fa-envelope"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="contact.html"><i class="far fa-envelope"></i></a>
         </div>
         
         <p class="copyright">&copy; 2025 AquaLux Toronto. All rights reserved.</p>
@@ -643,56 +588,30 @@
     <script>
         const vehicles = [
             {
-                name: 'SEA-DOO GTI SE',
-                model: '2025 Purple Midnight',
+                name: 'Sea Doo GTI',
+                model: '1 Hour',
                 type: 'jetski',
                 weekdayPrice: 125,
-                weekendPrice: 149,
-                weekdayPriceHalf: 59,
-                weekendPriceHalf: 79,
+                weekendPrice: 150,
+                deposit: 20,
                 stats: { speed: 55, acceleration: 82, handling: 90, stability: 85 },
                 thumb: 'assets/purpleMidnight.png',
                 mainImage: 'assets/purpleMidnight.png'
             },
             {
-                name: 'SEA-DOO GTI SE',
-                model: '2025 Azure Blue',
+                name: 'Sea Doo GTI - 30 mins',
+                model: '30 Minutes',
                 type: 'jetski',
-                weekdayPrice: 125,
-                weekendPrice: 149,
-                weekdayPriceHalf: 59,
-                weekendPriceHalf: 79,
-                stats: { speed: 55, acceleration: 82, handling: 90, stability: 85 },
-                thumb: 'assets/cyanGTI.png',
-                mainImage: 'assets/cyanGTI.png'
-            },
-            {
-                name: 'SEA-DOO GTI SE',
-                model: '2025 Coral Blast',
-                type: 'jetski',
-                weekdayPrice: 125,
-                weekendPrice: 149,
-                weekdayPriceHalf: 59,
-                weekendPriceHalf: 79,
-                stats: { speed: 55, acceleration: 82, handling: 90, stability: 85 },
-                thumb: 'assets/cyanGTI2.png',
-                mainImage: 'assets/cyanGTI2.png'
-            },
-            {
-                name: 'SEA-DOO SPARK',
-                model: 'iBR Trixx 90HP',
-                type: 'jetski',
-                weekdayPrice: 125,
-                weekendPrice: 149,
-                weekdayPriceHalf: 59,
-                weekendPriceHalf: 79,
+                weekdayPrice: 60,
+                weekendPrice: 80,
+                duration: '30 mins',
                 stats: { speed: 50, acceleration: 85, handling: 92, stability: 78 },
                 thumb: 'assets/sparkgpt.png',
                 mainImage: 'assets/sparkgpt.png'
             },
             {
-                name: 'AQUALUX PREMIER',
-                model: '52ft Luxury Yacht - Minimum 4 Hours',
+                name: 'Yacht 52ft',
+                model: 'Luxury - Minimum 4 Hours',
                 type: 'yacht',
                 weekdayPrice: 450,
                 weekendPrice: 650,
@@ -702,21 +621,23 @@
                 mainImage: 'assets/52ft.png'
             },
             {
-                name: 'AQUALUX ELEGANCE',
-                model: '37ft Performance Yacht',
+                name: 'Yacht 36ft',
+                model: 'Performance - Minimum 4 Hours',
                 type: 'yacht',
-                weekdayPrice: 350,
-                weekendPrice: 500,
+                weekdayPrice: 400,
+                weekendPrice: 450,
+                minHours: 4,
                 stats: { speed: 32, acceleration: 70, handling: 80, stability: 90 },
                 thumb: 'assets/37ft.png',
                 mainImage: 'assets/37ft.png'
             },
             {
-                name: 'AQUALUX COMPACT',
-                model: '32ft Sport Yacht',
+                name: 'Yacht 32ft',
+                model: 'Sport - Minimum 4 Hours',
                 type: 'yacht',
                 weekdayPrice: 300,
                 weekendPrice: 350,
+                minHours: 4,
                 stats: { speed: 35, acceleration: 75, handling: 85, stability: 85 },
                 thumb: 'assets/32ft.png',
                 mainImage: 'assets/32ft.png'
@@ -724,8 +645,7 @@
         ];
         
         let currentIndex = 0;
-        let currentRate = 'weekday';
-        let currentDuration = 'hour'; // Default to 1 hour
+        let currentCategory = 'weekday';
         
         const mainVehicleImageElement = document.getElementById('mainVehicleImage');
 
@@ -733,14 +653,6 @@
             document.getElementById('loading').style.display = 'none';
             updateUI();
             generateThumbnails();
-            
-            // Add event listeners for duration buttons
-            document.querySelectorAll('.duration-option').forEach(button => {
-                button.addEventListener('click', function() {
-                    const duration = this.getAttribute('data-duration');
-                    setDuration(duration);
-                });
-            });
         }
         
         function updateUI() {
@@ -749,29 +661,9 @@
             document.getElementById('vehicleName').textContent = vehicle.name;
             document.getElementById('vehicleModel').textContent = vehicle.model;
             
-            // Update prices in the rate toggle based on duration for jet skis
-            let priceDisplay = '';
-            if (vehicle.type === 'jetski') {
-                const weekdayPrice = currentDuration === 'hour' ? vehicle.weekdayPrice : vehicle.weekdayPriceHalf;
-                const weekendPrice = currentDuration === 'hour' ? vehicle.weekendPrice : vehicle.weekendPriceHalf;
-                
-                document.getElementById('weekdayPrice').textContent = '$' + weekdayPrice;
-                document.getElementById('weekendPrice').textContent = '$' + weekendPrice;
-                
-                // Show duration toggle
-                if (document.getElementById('durationToggle')) {
-                    document.getElementById('durationToggle').style.display = 'flex';
-                }
-            } else {
-                // For yachts
-                document.getElementById('weekdayPrice').textContent = '$' + vehicle.weekdayPrice;
-                document.getElementById('weekendPrice').textContent = '$' + vehicle.weekendPrice;
-                
-                // Hide duration toggle for yachts
-                if (document.getElementById('durationToggle')) {
-                    document.getElementById('durationToggle').style.display = 'none';
-                }
-            }
+            // Update current price display
+            const currentPrice = currentCategory === 'weekday' ? vehicle.weekdayPrice : vehicle.weekendPrice;
+            document.getElementById('currentPrice').textContent = '$' + currentPrice;
             
             // Update main vehicle image
             mainVehicleImageElement.style.opacity = 0; // For fade effect
@@ -837,7 +729,7 @@
                 
                 const price = document.createElement('div');
                 price.className = 'vehicle-price';
-                price.textContent = `$${currentRate === 'weekday' ? vehicle.weekdayPrice : vehicle.weekendPrice}`;
+                price.textContent = `$${currentCategory === 'weekday' ? vehicle.weekdayPrice : vehicle.weekendPrice}`;
                 price.id = `thumb-price-${index}`;
                 thumbDiv.appendChild(price);
                 
@@ -875,14 +767,12 @@
             }
         });
         
-        function setRate(rateType) {
-            currentRate = rateType;
-            document.querySelectorAll('.rate-option').forEach(option => {
-                option.classList.remove('active');
-                if (option.textContent.trim().toLowerCase() === rateType.toLowerCase()) {
-                    option.classList.add('active');
-                }
+        function setCategory(category) {
+            currentCategory = category;
+            document.querySelectorAll('.category-button').forEach(button => {
+                button.classList.remove('active');
             });
+            event.target.classList.add('active');
             updateUI();
         }
         
@@ -890,14 +780,7 @@
             vehicles.forEach((vehicle, index) => {
                 const priceElement = document.getElementById(`thumb-price-${index}`);
                 if (priceElement) {
-                    let price;
-                    if (vehicle.type === 'jetski' && currentDuration === 'half') {
-                        // Use half hour pricing for jet skis when half hour is selected
-                        price = currentRate === 'weekday' ? vehicle.weekdayPriceHalf : vehicle.weekendPriceHalf;
-                    } else {
-                        // Use regular pricing for yachts and jet skis with hour duration
-                        price = currentRate === 'weekday' ? vehicle.weekdayPrice : vehicle.weekendPrice;
-                    }
+                    const price = currentCategory === 'weekday' ? vehicle.weekdayPrice : vehicle.weekendPrice;
                     priceElement.textContent = `$${price}`;
                 }
             });
@@ -905,41 +788,59 @@
         
         function bookVehicle() {
             const vehicle = vehicles[currentIndex];
-            let price;
-            let duration = '';
+            let redirectUrl = '';
             
-            if (vehicle.type === 'jetski') {
-                if (currentDuration === 'half') {
-                    price = currentRate === 'weekday' ? vehicle.weekdayPriceHalf : vehicle.weekendPriceHalf;
-                    duration = '30 minutes';
-                } else {
-                    price = currentRate === 'weekday' ? vehicle.weekdayPrice : vehicle.weekendPrice;
-                    duration = '1 hour';
-                }
-            } else {
-                price = currentRate === 'weekday' ? vehicle.weekdayPrice : vehicle.weekendPrice;
-                // For the 52ft yacht with minimum hours
-                if (vehicle.minHours) {
-                    duration = `minimum ${vehicle.minHours} hours`;
-                } else {
-                    duration = 'per hour';
-                }
+            // Define redirect URLs based on vehicle name and category
+            const vehicleKey = vehicle.name + ' ' + currentCategory;
+            
+            switch(vehicleKey) {
+                // Sea Doo GTI (1 Hour) Links
+                case 'Sea Doo GTI weekday':
+                    redirectUrl = 'https://aqualux.simplybook.me/v2/#book/category/1/service/3/';
+                    break;
+                case 'Sea Doo GTI weekend':
+                    redirectUrl = 'https://aqualux.simplybook.me/v2/#book/category/1/service/2/';
+                    break;
+                
+                // Jetski 30min Links - FIXED: matches actual vehicle name "Jetski"
+                case 'Sea Doo GTI - 30 mins weekday':
+                    redirectUrl = 'https://aqualux.simplybook.me/v2/#book/category/1/service/5/';
+                    break;
+                case 'Sea Doo GTI - 30 mins weekend':
+                    redirectUrl = 'https://aqualux.simplybook.me/v2/#book/category/1/service/4/';
+                    break;
+                
+                // Yacht 52ft Links
+                case 'Yacht 52ft weekday':
+                    redirectUrl = 'https://aqualux.simplybook.me/v2/#book/category/1/service/7/';
+                    break;
+                case 'Yacht 52ft weekend':
+                    redirectUrl = 'https://aqualux.simplybook.me/v2/#book/category/1/service/6/';
+                    break;
+                
+                // Yacht 36ft Links
+                case 'Yacht 36ft weekday':
+                    redirectUrl = 'https://aqualux.simplybook.me/v2/#book/category/1/service/9/';
+                    break;
+                case 'Yacht 36ft weekend':
+                    redirectUrl = 'https://aqualux.simplybook.me/v2/#book/category/1/service/8/';
+                    break;
+                
+                // Yacht 32ft Links
+                case 'Yacht 32ft weekday':
+                    redirectUrl = 'https://aqualux.simplybook.me/v2/#book/category/1/service/11/';
+                    break;
+                case 'Yacht 32ft weekend':
+                    redirectUrl = 'https://aqualux.simplybook.me/v2/#book/category/1/service/10/';
+                    break;
+                
+                default:
+                    redirectUrl = 'https://aqualux.simplybook.me/v2/';
+                    break;
             }
             
-            alert(`Booking ${vehicle.name} (${vehicle.model}) for $${price} - ${duration}`);
-            // You could redirect to a checkout page here
-        }
-        
-        function setDuration(duration) {
-            console.log("Setting duration to:", duration); // Debug log
-            currentDuration = duration;
-            document.querySelectorAll('.duration-option').forEach(option => {
-                option.classList.remove('active');
-                if (option.getAttribute('data-duration') === duration) {
-                    option.classList.add('active');
-                }
-            });
-            updateUI();
+            // Redirect to the specific booking page
+            window.location.href = redirectUrl;
         }
         
         window.addEventListener('load', initializePage);
