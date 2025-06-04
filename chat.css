@@ -1,5 +1,4 @@
-<style>
-    /* Chatbot Icon */
+/* Chatbot Icon */
     .chatbot-icon {
         position: fixed;
         bottom: 20px;
@@ -197,4 +196,3 @@
             transform: scale(1.05);
         }
     }
-</style>
