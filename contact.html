@@ -3,7 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaLux Toronto - Contact Us</title>
+    
+    <title>Contact AquaLux | Jet Ski & Yacht Rentals in Toronto</title>
+    <meta name="description" content="Get in touch with AquaLux Toronto. Find our address, seasonal hours, and contact details. Send us a message or call us to book your jet ski or yacht adventure.">
+    <link rel="canonical" href="https://aqualuxury.ca/contact.html">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "mainEntity": {
+        "@type": "BoatRental",
+        "name": "AquaLux Toronto",
+        "image": "https://aqualuxury.ca/assets/logonobg.jpg",
+        "telephone": "+14166761821",
+        "email": "aqualuxmngmt@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1675 Lake Shore Blvd E",
+          "addressLocality": "Toronto",
+          "addressRegion": "ON",
+          "postalCode": "M4L 3W6",
+          "addressCountry": "CA"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "name": "In Season (May-October)",
+            "opens": "09:00",
+            "closes": "19:00",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "validFrom": "2025-05-01",
+            "validThrough": "2025-10-31"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "name": "In Season (May-October)",
+            "opens": "08:00",
+            "closes": "20:00",
+            "dayOfWeek": ["Saturday","Sunday"],
+            "validFrom": "2025-05-01",
+            "validThrough": "2025-10-31"
+          }
+        ]
+      }
+    }
+    </script>
     <style>
         /* Reset and Base Styles */
         * {
@@ -20,58 +65,16 @@
             overflow-x: hidden;
         }
         
-        /* Header Styles */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            background-color: #000;
-            position: absolute;
-            width: 100%;
-            z-index: 100;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 300;
-            letter-spacing: 4px;
-            color: #fff;
-            text-decoration: none;
-            text-align: center;
-        }
-        
-        .logo span {
-            display: block;
-            font-size: 14px;
-            letter-spacing: 2px;
-        }
-        
-        .social-icons a {
-            color: #fff;
-            margin-right: 20px;
-            font-size: 18px;
-        }
-        
-        .menu-toggle {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        
         /* Hero Section */
         .hero {
-            position: relative;
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 40px;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('/api/placeholder/1600/900') center/cover no-repeat;
-            padding-top: 80px;
-        }
+    position: relative;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 40px;
+    padding-top: 80px;
+}
         
         .hero-content {
             max-width: 800px;
@@ -251,76 +254,6 @@
             color: #ddd;
         }
         
-        /* Map Section */
-        .map-section {
-            height: 500px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .map-placeholder {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%) brightness(0.8);
-        }
-        
-        .map-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .map-card {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 40px;
-            max-width: 400px;
-            text-align: center;
-        }
-        
-        .map-title {
-            font-size: 1.8rem;
-            font-weight: 300;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-        
-        .map-divider {
-            width: 50px;
-            height: 3px;
-            background-color: #987750;
-            margin: 20px auto;
-        }
-        
-        .map-address {
-            font-size: 1.1rem;
-            color: #ddd;
-            margin-bottom: 30px;
-        }
-        
-        .map-btn {
-            display: inline-block;
-            background: none;
-            border: 1px solid #987750;
-            color: #987750;
-            padding: 12px 30px;
-            font-size: 1rem;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .map-btn:hover {
-            background-color: #987750;
-            color: #000;
-        }
-        
         /* Footer */
         footer {
             background-color: #111;
@@ -379,36 +312,14 @@
                 margin-bottom: 50px;
             }
             
-            .map-card {
-                width: 90%;
-                padding: 30px 20px;
-            }
-            
             .footer-links a {
                 margin: 0 10px 10px;
             }
         }
     </style>
-    <!-- Font Awesome for icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 </head>
 <body>
-    <header>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="far fa-envelope"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-        </div>
-        
-        <a href="index.html" class="logo">
-            AQUALUX
-            <span>TORONTO</span>
-        </a>
-        
-        <button class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </button>
-    </header>
     
     <section class="hero">
         <div class="hero-content">
@@ -425,9 +336,9 @@
             
             <div class="contact-method">
                 <h3>LOCATION</h3>
-                <p>AquaLux Toronto Marina</p>
-                <p>235 Queens Quay West</p>
-                <p>Toronto, ON M5J 2G8</p>
+                <p>AquaLux - Woodbine Beach Location</p>
+                <p>1675 Lake Shore Blvd E</p>
+                <p>Toronto, ON, M4L 3W6</p>
                 <p>Canada</p>
             </div>
             
@@ -436,25 +347,20 @@
                 <p><strong>In Season (May-October):</strong></p>
                 <p>Monday-Friday: 9:00 AM - 7:00 PM</p>
                 <p>Saturday-Sunday: 8:00 AM - 8:00 PM</p>
-                <p><strong>Off Season (November-April):</strong></p>
-                <p>Monday-Friday: 10:00 AM - 5:00 PM</p>
-                <p>Saturday: 10:00 AM - 4:00 PM</p>
-                <p>Sunday: Closed</p>
             </div>
             
             <div class="contact-method">
                 <h3>CONTACT</h3>
                 <p>Phone: <a href="tel:+14166761821">+1 (416) 676-1821</a></p>
-                <p>Email: <a href=""></a></p>
+                <p>Email: <a href="mailto:aqualuxmngmt@gmail.com">aqualuxmngmt@gmail.com</a></p>
             </div>
             
             <div class="contact-method">
                 <h3>FOLLOW US</h3>
                 <div class="social-icons" style="margin-top: 10px;">
-                    <a href="#" style="margin-right: 15px;"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/aqualuxrentals/" style="margin-right: 15px;"><i class="fab fa-instagram"></i></a>
                     <a href="#" style="margin-right: 15px;"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" style="margin-right: 15px;"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
         </div>
@@ -502,18 +408,6 @@
         </div>
     </div>
     
-    <section class="map-section">
-        <img src="/api/placeholder/1920/500" alt="Map location" class="map-placeholder">
-        <div class="map-overlay">
-            <div class="map-card">
-                <h3 class="map-title">FIND US</h3>
-                <div class="map-divider"></div>
-                <p class="map-address">AquaLux Toronto Marina<br>235 Queens Quay West<br>Toronto, ON M5J 2G8<br>Canada</p>
-                <a href="https://maps.google.com/?q=235+Queens+Quay+West+Toronto+ON+M5J+2G8" target="_blank" class="map-btn">GET DIRECTIONS</a>
-            </div>
-        </div>
-    </section>
-    
     <footer>
         <div class="footer-logo">
             AQUALUX
@@ -523,100 +417,68 @@
         <div class="footer-links">
             <a href="index.html">HOME</a>
             <a href="about.html">ABOUT US</a>
-            <a href="book-now.html">BOOK NOW</a>
-            <a href="fleet.html">OUR FLEET</a>
-            <a href="experiences.html">EXPERIENCES</a>
+            <a href="book.html">BOOK NOW</a>
             <a href="contact.html">CONTACT US</a>
-            <a href="faq.html">FAQ</a>
+            <a href="maps.html">FIND US</a>
         </div>
         
         <div class="footer-social">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/aqualuxrentals/"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
         
-        <p class="copyright">&copy; 2025 AquaLux Toronto. All rights reserved.</p>
+        <p class="copyright">© 2025 AquaLux Toronto. All rights reserved.</p>
     </footer>
     
     <script>
-        // Mobile menu toggle
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            // Mobile menu logic would go here
-            alert('Mobile menu functionality would be implemented here');
-        });
-        
         // Contact form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Show loading state
             const submitBtn = this.querySelector('.submit-btn');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'SENDING...';
             submitBtn.disabled = true;
-            
-            // Get form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value || 'Not provided',
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
-            
-            const endpoint= "https://aqualux.pythonanywhere.com/postemail"
 
-            // Send the form data to our Flask backend
-            fetch(endpoint, {
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            fetch(this.action, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(data)
             })
             .then(response => response.json())
-            .then(data => {
-                // Reset button state
+            .then(result => {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
                 
-                if (data.success) {
-                    // Show success message
-                    document.getElementById('formSuccess').style.display = 'block';
-                    document.getElementById('formError').style.display = 'none';
+                const successMsg = document.getElementById('formSuccess');
+                const errorMsg = document.getElementById('formError');
+
+                if (result.success) {
+                    successMsg.style.display = 'block';
+                    errorMsg.style.display = 'none';
                     this.reset();
-                    
-                    // Hide success message after 5 seconds
-                    setTimeout(() => {
-                        document.getElementById('formSuccess').style.display = 'none';
-                    }, 5000);
+                    setTimeout(() => { successMsg.style.display = 'none'; }, 5000);
                 } else {
-                    // Show error message with specific message if available
-                    document.getElementById('formError').textContent = data.error || 'There was an error sending your message. Please try again later.';
-                    document.getElementById('formError').style.display = 'block';
-                    document.getElementById('formSuccess').style.display = 'none';
-                    
-                    // Hide error message after 5 seconds
-                    setTimeout(() => {
-                        document.getElementById('formError').style.display = 'none';
-                    }, 5000);
+                    errorMsg.textContent = result.error || 'An unknown error occurred.';
+                    errorMsg.style.display = 'block';
+                    successMsg.style.display = 'none';
+                    setTimeout(() => { errorMsg.style.display = 'none'; }, 5000);
                 }
             })
             .catch(error => {
-                // Reset button state
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
                 
-                // Show error message
-                document.getElementById('formError').style.display = 'block';
+                const errorMsg = document.getElementById('formError');
+                errorMsg.textContent = 'A network error occurred. Please try again.';
+                errorMsg.style.display = 'block';
                 document.getElementById('formSuccess').style.display = 'none';
-                
-                // Hide error message after 5 seconds
-                setTimeout(() => {
-                    document.getElementById('formError').style.display = 'none';
-                }, 5000);
+                setTimeout(() => { errorMsg.style.display = 'none'; }, 5000);
             });
         });
     </script>
